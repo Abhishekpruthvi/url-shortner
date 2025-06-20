@@ -22,7 +22,7 @@ public class UrlShortenerService {
     public UrlShortenerService(UrlMappingRepository repository,
                                @Value("${app.base-url}") String baseUrl) {
         this.repository = repository;
-        this.baseUrl = baseUrl.endsWith("/") ? baseUrl.substring(0, baseUrl.length() - 1) : baseUrl;
+        this.baseUrl = baseUrl;
     }
 
     public UrlShortenResponse createShortUrl(UrlShortenRequest request) {
