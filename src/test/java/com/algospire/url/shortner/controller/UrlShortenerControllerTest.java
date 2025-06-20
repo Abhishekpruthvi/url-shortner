@@ -24,7 +24,7 @@ class UrlShortenerControllerTest {
 
     @Test
     void shortenEndpointShouldReturnShortUrl() throws Exception {
-        UrlShortenRequest req = new UrlShortenRequest("https://spring.io", null, null);
+        UrlShortenRequest req = new UrlShortenRequest("https://spring.io", null);
 
         mvc.perform(post("/api/shorten")
                 .contentType("application/json")

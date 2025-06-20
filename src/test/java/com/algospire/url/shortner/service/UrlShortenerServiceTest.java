@@ -18,7 +18,7 @@ class UrlShortenerServiceTest {
 
     @Test
     void shouldCreateAndResolveUrl() {
-        UrlShortenRequest req = new UrlShortenRequest("https://openai.com", null, null);
+        UrlShortenRequest req = new UrlShortenRequest("https://openai.com", null);
         UrlShortenResponse resp = service.createShortUrl(req);
 
         String code = resp.shortUrl().substring(resp.shortUrl().lastIndexOf('/') + 1);
@@ -30,7 +30,7 @@ class UrlShortenerServiceTest {
     @Test
     void shouldRespectExpiry() {
         LocalDateTime past = LocalDateTime.now().minusDays(1);
-        UrlShortenRequest req = new UrlShortenRequest("https://example.com", null, past);
+        UrlShortenRequest req = new UrlShortenRequest("https://example.com", null);
         UrlShortenResponse resp = service.createShortUrl(req);
         String code = resp.shortUrl().substring(resp.shortUrl().lastIndexOf('/') + 1);
 
